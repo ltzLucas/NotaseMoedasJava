@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ltzlu
- *
- */
-module NotasMoedasAssaas {
-}
