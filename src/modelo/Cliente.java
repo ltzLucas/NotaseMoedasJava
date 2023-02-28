@@ -33,7 +33,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Nome = " + nome + " Cpf = " + cpf + " Valor = " + "]";
+		return "Id: " + id +" Nome: " + nome + " Cpf:  " + cpf +"\n";
 	}
 
 	

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Banco { 
 	private static int count;
 	private int id;
-	private Cliente pessoa;
+	private Cliente cliente;
 	private int senha;
 	private double saldo;
 	
@@ -13,7 +13,7 @@ public class Banco {
 	}
 	
 	public Banco(Cliente pessoa,int senha,double saldo) {
-		this.pessoa = pessoa;
+		this.cliente = pessoa;
 		this.senha = senha;
 		this.saldo = saldo;
 		count++;
@@ -21,11 +21,6 @@ public class Banco {
 	}
 
 	public String TrocoComNotasDisponiveis(ArrayList<Nota> notas,Integer input) {
-		if( this.saldo < input.doubleValue()) {
-			throw new IllegalArgumentException(" Valor disponivel menor que o saque desejado ");
-		}
-		this.setSaldo(saldo - input.doubleValue()); 
-		
 		int aux = 0;
 		Double aux2 = 0.0;
 		int cont = 0;
@@ -55,11 +50,6 @@ public class Banco {
 
 	
 	public String TrocoComMoedasDisponiveis(ArrayList<Moeda> moedas, Double input) {
-		if( this.saldo < input) {
-			throw new IllegalArgumentException(" Valor disponivel menor que o saque desejado ");
-		}
-		this.setSaldo( saldo - input);
-		
 		Double aux = 0.0;
 		int cont = 0;
 
@@ -113,7 +103,15 @@ public class Banco {
 	public int getId() {
 		return id;
 	}
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
