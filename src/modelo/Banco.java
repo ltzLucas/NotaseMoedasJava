@@ -10,7 +10,6 @@ public class Banco {
 	private double saldo;
 	
 	public Banco() {
-		
 	}
 	
 	public Banco(Cliente pessoa,int senha,double saldo) {

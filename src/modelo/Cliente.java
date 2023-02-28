@@ -1,7 +1,7 @@
 package modelo;
 
 public class Cliente {
-	
+	private  int id;
 	private String nome;
 	private String cpf;
 	
@@ -13,6 +13,7 @@ public class Cliente {
 		
 		this.nome = nome;
 		this.cpf = cpf;
+		
 	}
 
 	public String getNome() {
@@ -20,6 +21,14 @@ public class Cliente {
 	}
 	public String getCpf() {
 		return cpf;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
