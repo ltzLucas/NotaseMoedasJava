@@ -1,15 +1,18 @@
 package modelo;
 
-public class Pessoa {
+public class Cliente {
 	
 	private String nome;
 	private String cpf;
-	private double valorTotal;
 	
-	public Pessoa(String nome, String cpf, double valorTotal) {
+	public Cliente(String nome, String cpf) {
+		boolean valido = cpf.matches("\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d");
+		if (valido == false) {
+			throw new IllegalArgumentException("Preencha o cpf nesse formato: 000.000.000-00");
+		} 
+		
 		this.nome = nome;
 		this.cpf = cpf;
-		this.valorTotal = valorTotal;
 	}
 
 	public String getNome() {
@@ -17,13 +20,6 @@ public class Pessoa {
 	}
 	public String getCpf() {
 		return cpf;
-	}
-	public double getValorTotal() {
-		return valorTotal;
-	}
-
-	public void setValorTotal(double valorTotal) {
-		this.valorTotal = valorTotal;
 	}
 
 	@Override

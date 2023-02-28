@@ -2,18 +2,24 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Banco {
-	private Pessoa pessoa;
-
+public class Banco { 
+	private Cliente pessoa;
+	private int senha;
+	private double saldo;
 	public Banco() {
+		
+	}
+	public Banco(Cliente pessoa,int senha,double saldo) {
+		this.pessoa = pessoa;
+		this.senha = senha;
+		this.saldo = saldo;
 	}
 
-
-	public String TrocoComNotasDisponiveis(ArrayList<Nota> notas,Pessoa pessoa ,Integer input) {
-		if( pessoa.getValorTotal() < input.doubleValue()) {
+	public String TrocoComNotasDisponiveis(ArrayList<Nota> notas,Integer input) {
+		if( this.saldo < input.doubleValue()) {
 			throw new IllegalArgumentException(" Valor disponivel menor que o saque desejado ");
 		}
-		pessoa.setValorTotal((pessoa.getValorTotal() - input));
+		this.setSaldo(saldo - input.doubleValue()); 
 		
 		int aux = 0;
 		Double aux2 = 0.0;
@@ -42,11 +48,12 @@ public class Banco {
 			+ "";
 	}
 
-	public String TrocoComMoedasDisponiveis(ArrayList<Moeda> moedas,Pessoa pessoa, Double input) {
-		if( pessoa.getValorTotal() < input) {
+	
+	public String TrocoComMoedasDisponiveis(ArrayList<Moeda> moedas, Double input) {
+		if( this.saldo < input) {
 			throw new IllegalArgumentException(" Valor disponivel menor que o saque desejado ");
 		}
-		pessoa.setValorTotal((pessoa.getValorTotal() - input));
+		this.setSaldo( saldo - input);
 		
 		Double aux = 0.0;
 		int cont = 0;
@@ -72,7 +79,7 @@ public class Banco {
 			+ "";
 	}
 
-	public void TrocoComNotasEMoedasDisponiveis(ArrayList<Nota> notas, ArrayList<Moeda> moedas,Pessoa pessoa, Double input) {
+	public void TrocoComNotasEMoedasDisponiveis(ArrayList<Nota> notas, ArrayList<Moeda> moedas, Double input) {
 		String aux = input.toString() + '1';
 		int numeroInteiro = input.intValue();
 
@@ -87,8 +94,21 @@ public class Banco {
 		}
 		double numeroDecimal = Double.valueOf(aux).doubleValue();
 		
-		System.out.println(TrocoComNotasDisponiveis(notas, pessoa ,numeroInteiro));
-		System.out.println(TrocoComMoedasDisponiveis(moedas,pessoa ,numeroDecimal));
-
+		System.out.println(TrocoComNotasDisponiveis(notas ,numeroInteiro));
+		System.out.println(TrocoComMoedasDisponiveis(moedas,numeroDecimal));
+	}
+	
+	public void Deposito( double valor ) {
+			this.saldo = this.saldo + valor;
+	}
+	
+	public double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	public int getSenha() {
+		return senha;
 	}
 }
