@@ -3,16 +3,22 @@ package modelo;
 import java.util.ArrayList;
 
 public class Banco { 
+	private static int count;
+	private int id;
 	private Cliente pessoa;
 	private int senha;
 	private double saldo;
+	
 	public Banco() {
 		
 	}
+	
 	public Banco(Cliente pessoa,int senha,double saldo) {
 		this.pessoa = pessoa;
 		this.senha = senha;
 		this.saldo = saldo;
+		count++;
+		this.id = count;
 	}
 
 	public String TrocoComNotasDisponiveis(ArrayList<Nota> notas,Integer input) {
@@ -105,6 +111,10 @@ public class Banco {
 	public double getSaldo() {
 		return saldo;
 	}
+	public int getId() {
+		return id;
+	}
+
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
