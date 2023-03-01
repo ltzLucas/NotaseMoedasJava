@@ -114,7 +114,6 @@ public class main {
 				break;
 			}
 		} while (opcaoCadastro != 5);
-	
 	}
 	
 	public static void menu() {

@@ -84,6 +84,7 @@ public class Banco {
 				}
 			}
 		}
+		//EXEMPLO: INPUT = 153.24         NumeroInteiro = 153      NumeroDecimal = 1.24
 		double numeroDecimal = Double.valueOf(aux).doubleValue();
 		
 		System.out.println(TrocoComNotasDisponiveis(notas ,numeroInteiro));
