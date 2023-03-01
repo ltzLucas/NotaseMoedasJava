@@ -22,19 +22,16 @@ public class Banco {
 
 	public String TrocoComNotasDisponiveis(ArrayList<Nota> notas,Integer input) {
 		int aux = 0;
-		Double aux2 = 0.0;
 		int cont = 0;
 
-		int[] vetor = new int[7];
+		int[] vetor = new int[7]; // Vetor para Armazenar a quantidade de notas Usadas
 		for (Nota nota : notas) {
 			aux = input / nota.getValor();
 			for (;;) {
 				vetor[cont] = aux;
 				break;
 			}
-			aux2 = input.doubleValue();
-			aux2 = aux2 - (vetor[cont] * nota.getValor());
-			input = aux2.intValue();
+			input = input - (vetor[cont] * nota.getValor());
 			cont++;
 		}
 
